@@ -18,32 +18,32 @@ public class PlayerSpawnObject : NetworkBehaviour
     {
         if (spawnedObject == null && Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SpawnObject(objToSpawn, transform, this);
+            SpawnObject(objToSpawn, transform/*, this*/);
         }
         if (spawnedObject != null && Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Despawn(spawnedObject);
+            DespawnObject(spawnedObject);
         }
     }
 
     [ServerRpc]
-    public void SpawnObject(GameObject obj, Transform player, PlayerSpawnObject script)
+    public void SpawnObject(GameObject obj, Transform player/*, PlayerSpawnObject script*/)
     {
         GameObject spawned = Instantiate(obj, player.position + player.forward, Quaternion.identity);
         ServerManager.Spawn(spawned);
-        SetSpawnedObject(spawned, script);
+        SetSpawnedObject(spawned/*, script*/);
     }
 
     [ObserversRpc]
-    public void SetSpawnedObject(GameObject spawned, PlayerSpawnObject script)
+    public void SetSpawnedObject(GameObject spawned/*, PlayerSpawnObject script*/)
     {
-        script.spawnedObject = spawned;
+        GetComponent<PlayerSpawnObject>().spawnedObject = spawned;
+        //script.spawnedObject = spawned;
     }
 
-    [ServerRpc]
-    public void DespawnObject(GameObject spawned, PlayerSpawnObject script)
+    [ServerRpc/*(RequireOwnership = false)*/]
+    public void DespawnObject(GameObject spawned)
     {
         ServerManager.Despawn(spawned);
-        SetSpawnedObject(spawned, script);
     }
 }
