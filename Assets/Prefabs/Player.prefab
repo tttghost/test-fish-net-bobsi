@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7685494026021666840}
   - component: {fileID: 8531019189115718082}
   - component: {fileID: 8545229492896035008}
+  - component: {fileID: 5157747958962471277}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103,9 +104,9 @@ MonoBehaviour:
   _enableStateForwarding: 1
   _networkTransform: {fileID: 0}
   _ownerInterpolation: 1
-  _ownerSmoothedProperties: 255
+  _ownerSmoothedProperties: 4294967295
   _adaptiveInterpolation: 3
-  _spectatorSmoothedProperties: 255
+  _spectatorSmoothedProperties: 4294967295
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
@@ -234,6 +235,21 @@ MonoBehaviour:
   objToSpawn: {fileID: 7028244372996590960, guid: 56af25e00d636bf4f819a35e84f6953d,
     type: 3}
   spawnedObject: {fileID: 0}
+--- !u!114 &5157747958962471277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926501385533708374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4059b590070b57042860b6d4be9a7b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1080394422995309138}
+  _networkObjectCache: {fileID: 0}
 --- !u!1 &5065470113721120257
 GameObject:
   m_ObjectHideFlags: 0
